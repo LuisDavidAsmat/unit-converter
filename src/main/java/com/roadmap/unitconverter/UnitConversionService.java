@@ -1,18 +1,5 @@
 package com.roadmap.unitconverter;
-//                   <option th:each="unit : ${units}" th:value="${unit}" th:text="${unit}" th:selected="${fromUnit == unit}"></option>
-//               <label th:for="toUnit">to:</label>
-//               <select th:name="toUnit" id="toUnit" th:value="${toUnit}">
-//                   <option th:each="unit : ${units}" th:value="${unit}" th:text="${unit}" th:selected="${toUnit == unit}"></option>
-//               </select>
-//
-//               <label th:for="unitType">Unit Type:</label>
-//               <select th:name="unitType" id="unitType" onchange="updateUnits()">
-//                   <option value="length">Length</option>
-//                   <option value="weight">Weight</option>
-//                   <option value="temperature">Temperature</option>
-//               </select>
-//
-//               <button type="submit">Convert</button>
+
 import org.springframework.stereotype.Service;
 import java.util.Map;
 
