@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Length Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1 class="mt-2 text-center text-3xl font-bold text-amber-600 max-sm:text-2xl"
+        th:text="${pageTitle}"></h1>
+
+    <main class="mt-6 mx-40 flex flex-col items-center shadow-lg rounded-md bg-white
+    max-sm:mx-0 ">
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+        <div th:if="${convertedResult != null}" th:remove="tag">
+            <section class="" th:replace="~{fragments/result :: result}"></section>
+        </div>
+
+        <div th:if="${convertedResult == null}" th:remove="tag">
+            <div th:replace ="~{fragments/convertForm :: convertForm}"></div>
+        </div>
+    </main>
+
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>
+
+

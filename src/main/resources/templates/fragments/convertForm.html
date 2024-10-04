@@ -1,0 +1,35 @@
+<form th:action="@{${redirectPath}}"
+      method="post" th:fragment="convertForm"
+      class="mt-2 p-4 w-full flex flex-col gap-2 max-sm:text-sm">
+    <label for="value" class="font-semibold">Enter value to convert:</label>
+    <input type="number" name="value" required th:value="${value}" id="value"
+           class="py-2 px-3 border-2 rounded focus:outline-none focus:shadow-outline bg-stone-100
+            max-sm:text-xs"
+           placeholder="Enter value">
+
+    <label for="fromUnit" class="font-semibold">Unit to convert from:</label>
+    <select name="fromUnit" id="fromUnit" th:value="${fromUnit}"
+            class="py-2 px-3
+            border-2 rounded focus:outline-none focus:shadow-outline bg-stone-100 text-stone-400
+            max-sm:text-xs"
+    >
+        <option th:each="unit : ${units}" th:value="${unit}" th:text="${unit}"
+                th:selected="${fromUnit == unit}"
+        ></option>
+    </select>
+
+    <label for="toUnit" class="font-semibold">Unit to convert to:</label>
+    <select name="toUnit" id="toUnit" th:value="${toUnit}"
+            class="py-2 px-3
+            border-2 shadow-sm rounded focus:outline-none focus:shadow-outline bg-stone-100 text-stone-400
+            max-sm:text-xs"
+    >
+        <option th:each="unit : ${units}" th:value="${unit}" th:text="${unit}"
+                th:selected="${fromUnit == unit}"
+        ></option>
+    </select>
+
+    <button type="submit"
+            class="mt-8 bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+    >Convert</button>
+</form>

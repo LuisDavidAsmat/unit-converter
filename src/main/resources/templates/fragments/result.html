@@ -1,0 +1,22 @@
+<section th:fragment="result"
+        th:with="value=${value},
+        fromUnit=${fromUnit},
+        toUnit=${toUnit},
+        convertedResult=${convertedResult},
+        redirectPath=${redirectPath}" class="mt-2 p-4 w-full">
+    <h2 class="mt-2 text-3xl font-bold text-amber-600 max-sm:text-2xl">Result of your calculation</h2>
+    <p class="mt-6 text-xl font-semibold max-sm:text-sm">
+        <span th:text="${value}"></span>
+        <span th:text="${fromUnit}"></span>
+        <span>=</span>
+        <span th:text="${convertedResult}" class=""></span>
+        <span th:text="${toUnit}"></span>
+    </p>
+    <a type="submit" th:href="${redirectPath}"
+       class="mt-8 block w-1/6
+       bg-amber-400 hover:bg-amber-500 active:bg-amber-600
+       text-white text-center font-bold py-2 px-4
+       rounded focus:outline-none focus:shadow-outline
+       max-md:w-full"
+    >Reset</a >
+</section>
