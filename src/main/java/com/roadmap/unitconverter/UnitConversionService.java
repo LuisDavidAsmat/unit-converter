@@ -46,7 +46,9 @@ public class UnitConversionService
 
 
     public double convertUnit(double valueToConvert, String fromUnit, String toUnit, Map<String, Double> conversionMap) {
-        return valueToConvert * conversionMap.get(fromUnit) / conversionMap.get(toUnit);
+        return Math.round(
+                valueToConvert * conversionMap.get(fromUnit) / conversionMap.get(toUnit)
+        );
     }
 
     public double convertLength(double valueToConvert, String fromUnit, String toUnit) {
@@ -78,8 +80,8 @@ public class UnitConversionService
             {
                 if (toUnit.equals("fahrenheit"))
                 {
-                    return valueToConvert * conversionFactors.get("fahrenheitFactor")
-                            + conversionFactors.get("fahrenheitOffset");
+                    return Math.round(valueToConvert * conversionFactors.get("fahrenheitFactor")
+                            + conversionFactors.get("fahrenheitOffset"));
                 }
                 else if (toUnit.equals("kelvin"))
                 {
@@ -92,25 +94,32 @@ public class UnitConversionService
             {
                 if (toUnit.equals("celsius"))
                 {
-                    return (valueToConvert + conversionFactors.get("celsiusOffset"))
-                            * conversionFactors.get("celsiusFactor");
+                    return Math.round((valueToConvert + conversionFactors.get("celsiusOffset"))
+                            * conversionFactors.get("celsiusFactor"));
 
                 }
                 else if (toUnit.equals("kelvin"))
                 {
-                    return (valueToConvert + conversionFactors.get("celsiusOffset"))
+                    return Math.round(
+                            (valueToConvert + conversionFactors.get("celsiusOffset"))
                             * conversionFactors.get("celsiusFactor")
-                            + temperatureConversions.get("celsius").get("kelvinOffset");
+                            + temperatureConversions.get("celsius").get("kelvinOffset")
+                    );
                 }
                 break;
 
             }
             case "kelvin":
             {
-                if (toUnit.equals("celsius")) {
+                if (toUnit.equals("celsius"))
+                {
                     return valueToConvert + conversionFactors.get("celsiusOffset");
-                } else if (toUnit.equals("fahrenheit")) {
-                    return valueToConvert * conversionFactors.get("fahrenheitFactor") + conversionFactors.get("fahrenheitOffset");
+                }
+                else if (toUnit.equals("fahrenheit"))
+                {
+                    return Math.round(
+                            valueToConvert * conversionFactors.get("fahrenheitFactor") + conversionFactors.get("fahrenheitOffset")
+                    );
                 }
                 break;
 
